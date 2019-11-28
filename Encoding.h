@@ -8,8 +8,8 @@ namespace Encoding
 {
     enum class EncodingKind
     {
-		Error=0, ASCII, Utf8, Utf16, Utf32
-	};
+	Error=0, ASCII, Utf8, Utf16, Utf32
+    };
 
 
     struct ASCII
@@ -31,13 +31,12 @@ namespace Encoding
             {
                 *pCodePoint = codePoint;
                 return 1;
-            }else { throw std::invalid_argument("source");}
-            
+            }else { throw std::invalid_argument("source");}         
         }
 
         static size_t Encode(uint32_t codePoint, std::string_view dest)
         {
-            
+       
 			if (codePoint <= 0x7F) {
 				const_cast<char&>(dest.at(0)) = (0xFF & codePoint);
 				return 1;
