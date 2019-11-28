@@ -138,8 +138,7 @@ namespace Encoding
         }
 
 		static size_t Encode(uint32_t codePoint, std::string_view dest)
-		{
-		
+		{		
 			if (codePoint <= 0x7F) {
 				const_cast<char&>(dest.at(0)) = (static_cast<char>(codePoint & 0xFF));
 				return 1;
